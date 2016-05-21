@@ -54,4 +54,3 @@ var Player = function(name){
 var Enemy = function(){
   this.enemyHealthPenalty = 0.9;
 };
-
