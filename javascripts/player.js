@@ -5,35 +5,15 @@
 // gauntlet.Combatants = {};
 
 // PLAYER CONSTRUCTOR FUNCTION
-var Player = function (playerName, playerRace, playerClass, weapon) {
-  console.log("this = ", this);
-  this.playerName = playerName;
-  this.health = 100;
+var createPlayer = function (playerName, playerClass, playerRace, weapon) {
 
-  console.log("this = ", this);
-  console.log("window = ", window);
-
-  window[weapon].prototype = new window[playerClass]();
-  window[playerClass].prototype = new window[playerRace]();
   window[playerRace].prototype = new Combatant();
+  window[playerClass].prototype = new window[playerRace]();
+  window[weapon].prototype = new window[playerClass]();
+  Player.prototype = new window[weapon]();
 
-  /*
-  this.toString = function() {
-    var output = [this.playerName,
-      ": a ",
-      this.playerRace,
-      " ",
-      this.playerClass,
-      " with ",
-      this.health,
-      " health. ",
-      " Wielding a ",
-      this.weapon.toString(),
-      "!"
-    ].join("");
-    return output;
-  };
- */
+  return new Player(playerName);
+
 };
 
 
