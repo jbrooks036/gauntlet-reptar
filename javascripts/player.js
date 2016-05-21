@@ -1,19 +1,19 @@
-/*
-  TODO: Modularize this code with IIFE or Browserify
- */
-// var Gauntlet = Gauntlet || {};
-// gauntlet.Combatants = {};
+"use strict";
 
-// PLAYER CONSTRUCTOR FUNCTION
-var createPlayer = function (playerName, playerClass, playerRace, weapon) {
+// create a player, composing player from multiple prototypes
+var gauntlet = (function (object) {
 
-  window[playerRace].prototype = new Combatant();
-  window[playerClass].prototype = new window[playerRace]();
-  window[weapon].prototype = new window[playerClass]();
-  Player.prototype = new window[weapon]();
+  object.createPlayer = function (playerName, playerClass, playerRace, weapon) {
+    gauntlet[playerRace].prototype = new Combatant();
+    gauntlet[playerClass].prototype = new window[playerRace]();
+    gauntlet[weapon].prototype = new window[playerClass]();
+    Player.prototype = new window[weapon]();
 
-  return new Player(playerName);
+    return new Player(playerName);
+  };
 
-};
+  return object;
+
+})(gauntlet || {});
 
 
