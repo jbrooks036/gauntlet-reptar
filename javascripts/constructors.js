@@ -6,6 +6,18 @@ var gauntlet = (function(object){
   object.Combatant = function(){
     this.health = 100;
     this.damage = 10;
+    this.applyModifiers = function() {
+      this.health *= this.raceHealthModifier;
+      this.damage *= this.raceDamageModifier;
+
+      this.health *= this.classHealthModifier;
+      this.damage *= this.classDamageModifier;
+
+      this.damage *= this.weaponDamageModifier;
+      if (this.hasOwnProperty("enemyHealthPenalty")) {
+          this.health *= this.enemyHealthPenalty;
+      }
+    };
   };
 
   // FEDERATION (RACE 1) CONSTRUCTOR FUNCTION
@@ -60,4 +72,3 @@ var gauntlet = (function(object){
 
   return object;
 })(gauntlet || {});
-
