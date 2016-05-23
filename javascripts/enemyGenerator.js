@@ -25,8 +25,3 @@ var gauntlet = (function(obj){
 	return obj;
 
 })(gauntlet || {});
-
-var a = gauntlet.randomEnemy();
-var b = gauntlet.randomEnemy();
-var c = gauntlet.randomEnemy();
-var d = gauntlet.randomEnemy();
