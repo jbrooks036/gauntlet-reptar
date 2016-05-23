@@ -36,7 +36,7 @@ var gauntlet = (function(gauntlet){
 		};
 
 		//CREATES NEW PLAYER AND ENEMY OBJECTS//
-		var enemy = gauntlet.createRandomEnemy();
+		var enemy = gauntlet.randomEnemy();
 		var player = gauntlet.createPlayer(playerName, playerClass, playerRace, playerWeapon);
 
 		//APPLIES MODIFIERS TO PLAYER AND ENEMY OBJECTS//
