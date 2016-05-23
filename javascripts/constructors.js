@@ -34,6 +34,20 @@ var gauntlet = (function(object){
       this.raceDamageModifier = 1.4;
     };
 
+    // VULCAN (RACE 3) CONSTRUCTOR FUNCTION
+    object.Vulcan = function(){
+      this.race = 'Vulcan';
+      this.raceHealthModifier = 1.5;
+      this.raceDamageModifier = 1.0;
+    };
+
+    // ROMULAN (RACE 4) CONSTRUCTOR FUNCTION
+    object.Romulan = function(){
+      this.race = 'Romulan';
+      this.raceHealthModifier = 1.2;
+      this.raceDamageModifier = 1.3;
+    };
+
     // CRUISER (CLASS 1) CONSTRUCTOR FUNCTION
     object.Cruiser = function(){
       this.class = 'Cruiser';
