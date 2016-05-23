@@ -23,6 +23,7 @@ body {
 #main {
   text-align: center;
   height: 200px;
+  margin-top: 10px;
 }
 
 .nameSelectInput {
