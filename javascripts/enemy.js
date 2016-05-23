@@ -1,3 +1,5 @@
+//*****ENEMY*****//
+"use strict";
 
 var gauntlet = (function(gauntlet){
 

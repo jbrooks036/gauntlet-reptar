@@ -1,13 +1,18 @@
-
+//*****GAME SETUP*****//
+'use strict';
 
 var gauntlet = (function(gauntlet){
 
+	//MAIN DOM ELEMENT//
 	var mainDiv = document.getElementById('main');
+
+	//VARAIBLE DECLARATIONS FOR PLAYER CREATION PARAMETERS//
 	var playerName;
 	var playerRace;
 	var playerClass;
 	var playerWeapon;
 
+	//CALLBACK FOR WEAPON SELECT EVENT LISTENER//
 	var weaponSelect = function(event){
 		playerWeapon = event.target.getAttribute('id');
 		console.log(playerWeapon);
@@ -16,6 +21,7 @@ var gauntlet = (function(gauntlet){
 		gauntlet.combat(playerName, playerClass, playerRace, playerWeapon);
 	};
 
+	//CALLBACK FOR CLASS SELECT EVENT LISTENER//
 	var classSelect = function(event){
 		playerClass = event.target.getAttribute('id');
 		console.log(playerClass);
@@ -28,17 +34,19 @@ var gauntlet = (function(gauntlet){
 		mainDiv.addEventListener('click', weaponSelect);
 	};
 
+	//CALLBACK FOR RACE SELECT EVENT LISTENER//
 	var raceSelect = function(event){
-			playerRace = event.target.getAttribute('id');
-			console.log(playerRace);
-			mainDiv.removeEventListener('click', raceSelect);
-			mainDiv.innerHTML = (
-				`<div class='selectorCard' id='Cruiser'>Cruiser</div>`+
-				`<div class='selectorCard' id='Destroyer'>Destroyer</div>`
-				);
-			mainDiv.addEventListener('click', classSelect);
+		playerRace = event.target.getAttribute('id');
+		console.log(playerRace);
+		mainDiv.removeEventListener('click', raceSelect);
+		mainDiv.innerHTML = (
+			`<div class='selectorCard' id='Cruiser'>Cruiser</div>`+
+			`<div class='selectorCard' id='Destroyer'>Destroyer</div>`
+			);
+		mainDiv.addEventListener('click', classSelect);
 	};
 
+	//CALLBACK FOR NAME SELECTEVENT LISTENER//
 	var nameSelect = function(event){
 		if(event.which === 13){
 			playerName = event.target.value;
@@ -51,8 +59,8 @@ var gauntlet = (function(gauntlet){
 		}
 	};
 
+	//STARTS NEW GAME//
 	gauntlet.newGame = function(){
-		// mainDiv.innerHTML = (`<div>Start New Game</div>`);
 		mainDiv.innerHTML = (`<input type='text' id='nameSelectInput'/>`);
 		document.getElementById('nameSelectInput').addEventListener('keyup', nameSelect);
 	};
