@@ -21,24 +21,28 @@ var gauntlet = (function(object){
 
     // FEDERATION (RACE 1) CONSTRUCTOR FUNCTION
     object.Federation = function(){
+      this.race = 'Federation';
       this.raceHealthModifier = 1.4;
       this.raceDamageModifier = 1.1;
     };
 
     // KLINGON (RACE 2) CONSTRUCTOR FUNCTION
     object.Klingon = function(){
+      this.race = 'Klingon';
       this.raceHealthModifier = 1.1;
       this.raceDamageModifier = 1.4;
     };
 
     // CRUISER (CLASS 1) CONSTRUCTOR FUNCTION
     object.Cruiser = function(){
+      this.class = 'Cruiser';
       this.classHealthModifier = 1.2;
       this.classDamageModifier = 1.3;
     };
 
     // DESTROYER (CLASS 2) CONSTRUCTOR FUNCTION
     object.Destroyer = function(){
+      this.class = 'Destroyer';
       this.classHealthModifier = 1;
       this.classDamageModifier = 1.5;
     };
