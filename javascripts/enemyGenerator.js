@@ -24,6 +24,7 @@ var gauntlet = (function(obj){
 	  gauntlet[randomWeapon].prototype = new gauntlet[randomClass]();
 	  gauntlet.Enemy.prototype = new gauntlet[randomWeapon]();
 
+	  // RETURN NEW ENEMY //
 	  return new obj.Enemy();
 	};
 	// RETURN NEW ENEMY //
