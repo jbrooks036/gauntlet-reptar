@@ -3,7 +3,7 @@
 
 var gauntlet = (function(obj){
 	// ARRAYS OF POSSIBLE ENEMY RACES, CLASSES, AND WEAPONS //
-	var allowedRaces = ["Federation", "Klingon"];
+	var allowedRaces = ["Federation", "Klingon", "Vulcan", "Romulan"];
 	var allowedClasses = ["Cruiser", "Destroyer"];
 	var allowedWeapons = ["Laser", "Photon", "Pulse"];
 
