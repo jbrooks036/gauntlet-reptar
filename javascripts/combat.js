@@ -45,6 +45,9 @@ var gauntlet = (function(gauntlet){
 		enemy.applyModifiers();
 		player.applyModifiers();
 
+		gauntlet.enemyPickShip(enemy);
+		gauntlet.playerPickShip(player);
+
     //HANDLES FOR STAT DISPLAYS
     var playerName = player.name;
     $('#player-name').html(playerName);
