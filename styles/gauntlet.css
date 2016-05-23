@@ -3,6 +3,8 @@ body {
   margin: 0;
   padding: 10px;
   font-size: 3em;
+  background-image: url('../images/spaceBG2.jpg');
+  background-size: cover;
 }
 
 .field {
@@ -21,6 +23,7 @@ body {
 /*
   Section styles
  */
+<<<<<<< HEAD
 .card { 
   display: inline-block;
   height: 400px;
@@ -30,6 +33,10 @@ body {
   background: blue;
   border: 2px solid lightblue;
   border-radius: 25px;
+=======
+.card {
+  display: none;
+>>>>>>> master
 }
 
 .card__prompt {
