@@ -12,7 +12,7 @@ var gauntlet = (function(gauntlet){
 		//GENERATES RANDOM NUMBER FOR DAMAGE MULTIPLIER//
 		var randomDamageMultiplier = function (min,max){
 			return Math.random() * (max-min) + min;
-		}
+		};
 
 		//CALLBACK FOR CONTINUE CHECKER EVENT LISTENER//
 		var continueCheckerCallback = function(event){
@@ -53,9 +53,9 @@ var gauntlet = (function(gauntlet){
 
 			//MAIN ATTACK/DAMAGE SEQUENCE//
 			if(player.health >=0 && enemy.health >=0){
-				enemy.health -= randomDamageMultiplier(.75,1.1)*player.damage;
+				enemy.health -= randomDamageMultiplier(0.75,1.1)*player.damage;
 				console.log(`${enemy.race} ${enemy.class}'s health`, enemy.health);
-				player.health -= randomDamageMultiplier(.75,1.1)*enemy.damage;
+				player.health -= randomDamageMultiplier(0.75,1.1)*enemy.damage;
 				console.log(`${player.name}'s health`, player.health);
 			} 
 

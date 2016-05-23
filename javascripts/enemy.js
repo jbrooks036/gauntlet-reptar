@@ -20,7 +20,7 @@ var gauntlet = (function(gauntlet){
     gauntlet[randomWeapon].prototype = new gauntlet[randomClass]();
     gauntlet.Enemy.prototype = new gauntlet[randomWeapon]();
 
-    return new gauntlet.Enemy;
+    return new gauntlet.Enemy();
   };
   
 return gauntlet;
