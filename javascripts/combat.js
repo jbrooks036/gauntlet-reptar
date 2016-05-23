@@ -43,10 +43,18 @@ var gauntlet = (function(gauntlet){
 		enemy.applyModifiers();
 		player.applyModifiers();
 
+    //HANDLES FOR STAT DISPLAYS
+    var playerName = player.name;
+    $('#player-name').html(playerName);
+    var enemyRace = enemy.race;
+    var enemyDesc = enemyRace.concat(" ", enemy.class);
+    $('#enemy-desc').html(enemyDesc);
+    $('#attack-header').html("Attack Results");
+
 		//LOGS INITIAL STATS//
 		console.log("START NEW MATCH!");
-		console.log(`${enemy.race} ${enemy.class}'s health`, enemy.health);
-		console.log(`${player.name}'s health`, player.health);
+		console.log(`${enemyDesc}'s health`, enemy.health);
+		console.log(`${playerName}'s health`, player.health);
 
 		//CALLBACK FOR ATTACK BUTTON EVENT LISTENER//
 		var attackSequence = function(){
@@ -55,32 +63,36 @@ var gauntlet = (function(gauntlet){
 			if(player.health >=0 && enemy.health >=0){
 
         // player damage to enemy health
-				// enemy.health -= randomDamageMultiplier(0.75,1.1)*player.damage;
         var playerDamage2Enemy = randomDamageMultiplier(0.75,1.1)*player.damage;
 				enemy.health -= playerDamage2Enemy;
         $('#player-damage-to-enemy').html(Math.round(playerDamage2Enemy));
-				console.log(`${enemy.race} ${enemy.class}'s health`, enemy.health);
         $('#enemy-health-value').html(Math.round(enemy.health));
+				console.log(`${enemyDesc}'s health`, enemy.health);
 
         // enemy damage to player health
-				// player.health -= randomDamageMultiplier(0.75,1.1)*enemy.damage;
 				var enemyDamage2Player = randomDamageMultiplier(0.75,1.1)*enemy.damage;
 				player.health -= enemyDamage2Player;
         $('#enemy-damage-to-player').html(Math.round(enemyDamage2Player));
-				console.log(`${player.name}'s health`, player.health);
         $('#player-health-value').html(Math.round(player.health));
+				console.log(`${playerName}'s health`, player.health);
 			}
 
 			//CHECKS FOR LOSERS//
 			if(enemy.health <=0){
 				mainDiv.removeEventListener("click", attackSequence);
-				console.log(`${player.name} Wins!`);
+        $('#attack-header').html("Game Over");
+        $('#winner-id').html(`${playerName} Wins!`);
+        $('#line-2').html(" ");
+				console.log(`${playerName} Wins!`);
 				continueChecker();
 				return null;
 
 			} else if(player.health <=0){
 				mainDiv.removeEventListener("click", attackSequence);
-				console.log(`${enemy.race} ${enemy.class} Wins!`);
+        $('#attack-header').html("Game Over");
+        $('#winner-id').html(`${enemyDesc} Wins!`);
+        $('#line-2').html(" ");
+				console.log(`${enemyDesc} Wins!`);
 				continueChecker();
 				return null;
 			}
