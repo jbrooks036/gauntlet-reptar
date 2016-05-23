@@ -10,14 +10,15 @@ var gauntlet = (function(gauntlet){
   gauntlet.createRandomEnemy = function() {
 
     var enemy = new gauntlet.Enemy();
-    gauntlet.randomRace = enemy.allowedRaces[generateRandomIndex(0, enemy.allowedRaces.length)];
-    gauntlet.randomClass = enemy.allowedClasses[generateRandomIndex(0, enemy.allowedClasses.length)];
-    gauntlet.randomWeapon = enemy.allowedWeapons[generateRandomIndex(0, enemy.allowedWeapons.length)];
 
-    gauntlet[gauntlet.randomRace].prototype = new gauntlet.Combatant();
-    gauntlet[gauntlet.randomClass].prototype = new gauntlet[gauntlet.randomRace]();
-    gauntlet[gauntlet.randomWeapon].prototype = new gauntlet[gauntlet.randomClass]();
-    gauntlet.Enemy.prototype = new gauntlet[gauntlet.randomWeapon]();
+    var randomRace = enemy.allowedRaces[generateRandomIndex(0, enemy.allowedRaces.length)];
+    var randomClass = enemy.allowedClasses[generateRandomIndex(0, enemy.allowedClasses.length)];
+    var randomWeapon = enemy.allowedWeapons[generateRandomIndex(0, enemy.allowedWeapons.length)];
+
+    gauntlet[randomRace].prototype = new gauntlet.Combatant();
+    gauntlet[randomClass].prototype = new gauntlet[randomRace]();
+    gauntlet[randomWeapon].prototype = new gauntlet[randomClass]();
+    gauntlet.Enemy.prototype = new gauntlet[randomWeapon]();
 
     return new gauntlet.Enemy;
   };
