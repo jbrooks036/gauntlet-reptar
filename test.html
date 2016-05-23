@@ -4,9 +4,25 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="styles/gauntlet.css">
 </head>
 <body>
+  <div id ="cards">
+    <article class="card" id="player-card">
+      <header> Player </header>
+      <div>
+        <img src="images/pigeon2.jpg" alt="playerImage" height="42" width="42">
+        <div class="health-stat-label"> Health </div>
+        <div class="damage-stat-label"> Damage </div>
+    </article>
+    <article class="card" id="enemy-card">
+      <header> Enemy </header>
+        <img src="images/pigeon2.jpg" alt="playerImage" height="42" width="42">
+        <div class="health-stat-label"> Health </div>
+        <div class="damage-stat-label"> Damage </div>
+    </article>
+  </div>
+
 	<button id="attackButton"></button>
 	<script src="javascripts/constructors.js" type="text/javascript" charset="utf-8" async defer></script>
 	<script src="javascripts/player.js" type="text/javascript" charset="utf-8" async defer></script>

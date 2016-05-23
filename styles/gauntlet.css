@@ -22,7 +22,14 @@ body {
   Section styles
  */
 .card { 
-  display: none;
+  display: inline-block;
+  height: 400px;
+  width: 250px;
+  margin: 1%;
+  padding: 10px;
+  background: blue;
+  border: 2px solid lightblue;
+  border-radius: 25px;
 }
 
 .card__prompt {
@@ -38,6 +45,9 @@ body {
   text-align: center;
 }
 
+.header {
+  font-size: 4em;
+}
 
 /*
   Button styles
