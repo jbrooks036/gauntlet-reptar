@@ -23,7 +23,25 @@ body {
   Section styles
  */
 .card {
-  display: none;
+  display: inline-block;
+  height: 400px;
+  width: 250px;
+  margin: 1%;
+  padding: 10px;
+  background: blue;
+  border: 2px solid black;
+  border-radius: 25px;
+}
+
+.attack-card {
+  display: inline-block;
+  height: 100px;
+  width: 600px
+  margin: 1%;
+  padding: 10px;
+  background: yellow;
+  border: 2px solid black;
+  border-radius: 25px;
 }
 
 .card__prompt {
@@ -39,6 +57,19 @@ body {
   text-align: center;
 }
 
+.display-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 60px;
+  width: 60px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+.header {
+  font-size: 2em;
+  text-align: center;
+}
 
 /*
   Button styles
