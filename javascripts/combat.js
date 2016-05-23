@@ -55,9 +55,11 @@ var gauntlet = (function(gauntlet){
 			if(player.health >=0 && enemy.health >=0){
 				enemy.health -= randomDamageMultiplier(0.75,1.1)*player.damage;
 				console.log(`${enemy.race} ${enemy.class}'s health`, enemy.health);
+        $('#enemy-health-value').html(Math.round(enemy.health));
 				player.health -= randomDamageMultiplier(0.75,1.1)*enemy.damage;
 				console.log(`${player.name}'s health`, player.health);
-			} 
+        $('#player-health-value').html(Math.round(player.health));
+			}
 
 			//CHECKS FOR LOSERS//
 			if(enemy.health <=0){
