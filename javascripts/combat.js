@@ -43,6 +43,11 @@ var gauntlet = (function(gauntlet){
 		enemy.applyModifiers();
 		player.applyModifiers();
 
+    //ADDS CORRECT SHIP IMAGE//
+    gauntlet.playerPickShip(player);
+    gauntlet.enemyPickShip(enemy);
+
+
     //HANDLES FOR STAT DISPLAYS
     var playerName = player.name;
     $('#player-name').html(playerName);
