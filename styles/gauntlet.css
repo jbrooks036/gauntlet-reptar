@@ -3,8 +3,6 @@ body {
   margin: 0;
   padding: 10px;
   font-size: 3em;
-  background-image: url('../images/spaceBG2.jpg');
-  background-size: cover;
 }
 
 .field {
@@ -23,20 +21,26 @@ body {
 /*
   Section styles
  */
-<<<<<<< HEAD
-.card { 
+.card {
   display: inline-block;
   height: 400px;
   width: 250px;
   margin: 1%;
   padding: 10px;
   background: blue;
-  border: 2px solid lightblue;
+  border: 2px solid black;
   border-radius: 25px;
-=======
-.card {
-  display: none;
->>>>>>> master
+}
+
+.attack-card {
+  display: inline-block;
+  height: 100px;
+  width: 600px
+  margin: 1%;
+  padding: 10px;
+  background: yellow;
+  border: 2px solid black;
+  border-radius: 25px;
 }
 
 .card__prompt {
@@ -52,8 +56,18 @@ body {
   text-align: center;
 }
 
+.display-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 60px;
+  width: 60px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
 .header {
-  font-size: 4em;
+  font-size: 2em;
+  text-align: center;
 }
 
 /*
