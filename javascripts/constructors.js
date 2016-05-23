@@ -7,15 +7,15 @@ var gauntlet = (function(object){
         this.health = 100;
         this.damage = 10;
         this.applyModifiers = function() {
-            this.health *= this.raceHealthModifier;
-            this.damage *= this.raceDamageModifier;
-            this.health *= this.classHealthModifier;
-            this.damage *= this.classDamageModifier;
-            this.health *= this.weaponHealthModifier;
-            this.damage *= this.weaponDamageModifier;
-            if (this.hasOwnProperty("enemyHealthPenalty")) {
-                this.health *= this.enemyHealthPenalty;
-            }
+          this.health *= this.raceHealthModifier;
+          this.damage *= this.raceDamageModifier;
+          this.health *= this.classHealthModifier;
+          this.damage *= this.classDamageModifier;
+          this.health *= this.weaponHealthModifier;
+          this.damage *= this.weaponDamageModifier;
+          if (this.hasOwnProperty("enemyHealthPenalty")) {
+              this.health *= this.enemyHealthPenalty;
+          }
         };
       };
 
@@ -73,7 +73,10 @@ var gauntlet = (function(object){
     // ENEMEY CONSTRUCTOR FUNCTION
     object.Enemy = function(){
       this.enemyHealthPenalty = 0.9;
+      this.allowedRaces = ["Federation", "Klingon"];
+      this.allowedClasses = ["Cruiser", "Destroyer"];
+      this.allowedWeapons = ["Laser", "Photon", "Pulse"];
     };
 
     return object;
-})(gauntlet || {})
+})(gauntlet || {});
