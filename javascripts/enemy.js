@@ -1,3 +1,4 @@
+
 var gauntlet = (function(gauntlet){
 
   gauntlet.allowedRaces = ["Federation", "Klingon"];

@@ -33,12 +33,12 @@ var combat = function(playerName, playerClass, playerRace, playerWeapon){
 
 		if(enemy.health <=0){
 			attackButton.removeEventListener("click", attackSequence);
-			console.log(`${player.name} Wins`);
+			console.log(`${player.name} Wins!`);
 			// combat(playerName, playerClass, playerRace, playerWeapon);
 
 		} else if(player.health <=0){
 			attackButton.removeEventListener("click", attackSequence);
-			console.log("enemy Wins!");
+			console.log(`${enemy.race} ${enemy.class} Wins!`);
 			// combat(playerName, playerClass, playerRace, playerWeapon);
 		}
 	}
