@@ -53,10 +53,20 @@ var gauntlet = (function(gauntlet){
 
 			//MAIN ATTACK/DAMAGE SEQUENCE//
 			if(player.health >=0 && enemy.health >=0){
-				enemy.health -= randomDamageMultiplier(0.75,1.1)*player.damage;
+
+        // player damage to enemy health
+				// enemy.health -= randomDamageMultiplier(0.75,1.1)*player.damage;
+        var playerDamage2Enemy = randomDamageMultiplier(0.75,1.1)*player.damage;
+				enemy.health -= playerDamage2Enemy;
+        $('#player-damage-to-enemy').html(Math.round(playerDamage2Enemy));
 				console.log(`${enemy.race} ${enemy.class}'s health`, enemy.health);
         $('#enemy-health-value').html(Math.round(enemy.health));
-				player.health -= randomDamageMultiplier(0.75,1.1)*enemy.damage;
+
+        // enemy damage to player health
+				// player.health -= randomDamageMultiplier(0.75,1.1)*enemy.damage;
+				var enemyDamage2Player = randomDamageMultiplier(0.75,1.1)*enemy.damage;
+				player.health -= enemyDamage2Player;
+        $('#enemy-damage-to-player').html(Math.round(enemyDamage2Player));
 				console.log(`${player.name}'s health`, player.health);
         $('#player-health-value').html(Math.round(player.health));
 			}
