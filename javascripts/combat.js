@@ -3,11 +3,13 @@
 
 var gauntlet = (function(gauntlet){
 
+	//MAIN DOM ELEMENT//
+	var mainDiv = document.getElementById('main');
+
 	//MAIN COMBAT FUNCTION//
 	gauntlet.combat = function(playerName, playerClass, playerRace, playerWeapon){
 
-		//MAIN DOM ELEMENT//
-		var mainDiv = document.getElementById('main');
+		
 
 		//GENERATES RANDOM NUMBER FOR DAMAGE MULTIPLIER//
 		var randomDamageMultiplier = function (min,max){
@@ -27,7 +29,7 @@ var gauntlet = (function(gauntlet){
 		};
 
 		//ADD EVENT LISTENER FOR SELECT CONTINUE/NEW GAME//
-		var continueChecker = function(){
+		gauntlet.continueChecker = function(){
 			mainDiv.innerHTML = (
 				`<div class='selectorCard' id='continue'>Continue</div>`+
 				`<div class='selectorCard' id='newGame'>New Game</div>`
@@ -43,11 +45,6 @@ var gauntlet = (function(gauntlet){
 		enemy.applyModifiers();
 		player.applyModifiers();
 
-    //ADDS CORRECT SHIP IMAGE//
-    gauntlet.playerPickShip(player);
-    gauntlet.enemyPickShip(enemy);
-
-
     //HANDLES FOR STAT DISPLAYS
     var playerName = player.name;
     $('#player-name').html(playerName);
@@ -62,26 +59,30 @@ var gauntlet = (function(gauntlet){
 		console.log(`${playerName}'s health`, player.health);
 
 		//CALLBACK FOR ATTACK BUTTON EVENT LISTENER//
-		var attackSequence = function(){
+		gauntlet.attackSequence = function(){
 
 			//MAIN ATTACK/DAMAGE SEQUENCE//
-			if(player.health >=0 && enemy.health >=0){
+//			if(player.health >=0 && enemy.health >=0){
 
         // player damage to enemy health
         var playerDamage2Enemy = randomDamageMultiplier(0.75,1.1)*player.damage;
 				enemy.health -= playerDamage2Enemy;
-        $('#player-damage-to-enemy').html(Math.round(playerDamage2Enemy));
-        $('#enemy-health-value').html(Math.round(enemy.health));
+//        $('#player-damage-to-enemy').html(Math.round(playerDamage2Enemy));
+//        $('#enemy-health-value').html(Math.round(enemy.health));
 				console.log(`${enemyDesc}'s health`, enemy.health);
 
         // enemy damage to player health
 				var enemyDamage2Player = randomDamageMultiplier(0.75,1.1)*enemy.damage;
 				player.health -= enemyDamage2Player;
-        $('#enemy-damage-to-player').html(Math.round(enemyDamage2Player));
-        $('#player-health-value').html(Math.round(player.health));
+//        $('#enemy-damage-to-player').html(Math.round(enemyDamage2Player));
+//        $('#player-health-value').html(Math.round(player.health));
 				console.log(`${playerName}'s health`, player.health);
+
+        // new line added
+        gauntlet.combatDisplay(player, enemy, playerDamage2Enemy, enemyDamage2Player);
 			}
 
+/*
 			//CHECKS FOR LOSERS//
 			if(enemy.health <=0){
 				mainDiv.removeEventListener("click", attackSequence);
@@ -89,7 +90,7 @@ var gauntlet = (function(gauntlet){
         $('#winner-id').html(`${playerName} Wins!`);
         $('#line-2').html(" ");
 				console.log(`${playerName} Wins!`);
-				continueChecker();
+				// continueChecker();
 				return null;
 
 			} else if(player.health <=0){
@@ -98,14 +99,16 @@ var gauntlet = (function(gauntlet){
         $('#winner-id').html(`${enemyDesc} Wins!`);
         $('#line-2').html(" ");
 				console.log(`${enemyDesc} Wins!`);
-				continueChecker();
+				// continueChecker();
 				return null;
 			}
+*/
+			//ADDS EVENT LISTENER TO ATTACK BUTTON//
+			mainDiv.addEventListener("click", gauntlet.attackSequence);
 		};
 
-		//ADDS EVENT LISTENER TO ATTACK BUTTON//
-		mainDiv.addEventListener("click", attackSequence);
-	};
+		
+
 
 	return gauntlet;
 })(gauntlet || {});
