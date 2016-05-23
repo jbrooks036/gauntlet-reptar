@@ -53,8 +53,8 @@ var gauntlet = (function(gauntlet){
 			mainDiv.removeEventListener('click', nameSelect);
 			mainDiv.innerHTML = (
 				`<div class='selectorCard' id='Federation'>Federation</div>`+
-				`<div class='selectorCard' id='Klingon'>Klingon</div>`
-				`<div class='selectorCard' id='Vulcan'>Vulcan</div>`
+				`<div class='selectorCard' id='Klingon'>Klingon</div>`+
+				`<div class='selectorCard' id='Vulcan'>Vulcan</div>`+
 				`<div class='selectorCard' id='Romulan'>Romulan</div>`
 				);
 			mainDiv.addEventListener('click', raceSelect);
