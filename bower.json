@@ -1,0 +1,14 @@
+{
+  "name": "gauntlet-reptar",
+  "description": "nss modern javascript group project",
+  "main": "index.html",
+  "authors": [
+    "pbhowelljr"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/nss-day-cohort-13/gauntlet-reptar",
+  "dependencies": {
+    "jquery": "^2.2.4",
+    "bootstrap": "^3.3.6"
+  }
+}
