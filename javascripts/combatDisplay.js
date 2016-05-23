@@ -31,26 +31,24 @@ var gauntlet = (function(object){
 
     //CHECKS FOR LOSERS//
     if(enemy.health <=0){
-      mainDiv.removeEventListener("click", attackSequence);
+      mainDiv.removeEventListener("click", gauntlet.attackSequence);
       $('#attack-header').html("Game Over");
       $('#winner-id').html(`${playerName} Wins!`);
       $('#line-2').html(" ");
       console.log(`${playerName} Wins!`);
-      continueChecker();
+      gauntlet.continueChecker();
       return null;
 
     } else if(player.health <=0){
-      mainDiv.removeEventListener("click", attackSequence);
+      mainDiv.removeEventListener("click", gauntlet.attackSequence);
       $('#attack-header').html("Game Over");
       $('#winner-id').html(`${enemyDesc} Wins!`);
       $('#line-2').html(" ");
       console.log(`${enemyDesc} Wins!`);
-      continueChecker();
+      gauntlet.continueChecker();
       return null;
     }
 
-		//ADDS EVENT LISTENER TO ATTACK BUTTON//
-		mainDiv.addEventListener("click", attackSequence);
 	};
 
 	return object;

@@ -3,11 +3,13 @@
 
 var gauntlet = (function(gauntlet){
 
+	//MAIN DOM ELEMENT//
+	var mainDiv = document.getElementById('main');
+
 	//MAIN COMBAT FUNCTION//
 	gauntlet.combat = function(playerName, playerClass, playerRace, playerWeapon){
 
-		//MAIN DOM ELEMENT//
-		var mainDiv = document.getElementById('main');
+		
 
 		//GENERATES RANDOM NUMBER FOR DAMAGE MULTIPLIER//
 		var randomDamageMultiplier = function (min,max){
@@ -27,7 +29,7 @@ var gauntlet = (function(gauntlet){
 		};
 
 		//ADD EVENT LISTENER FOR SELECT CONTINUE/NEW GAME//
-		var continueChecker = function(){
+		gauntlet.continueChecker = function(){
 			mainDiv.innerHTML = (
 				`<div class='selectorCard' id='continue'>Continue</div>`+
 				`<div class='selectorCard' id='newGame'>New Game</div>`
@@ -36,7 +38,7 @@ var gauntlet = (function(gauntlet){
 		};
 
 		//CREATES NEW PLAYER AND ENEMY OBJECTS//
-		var enemy = gauntlet.createRandomEnemy();
+		var enemy = gauntlet.randomEnemy();
 		var player = gauntlet.createPlayer(playerName, playerClass, playerRace, playerWeapon);
 
 		//APPLIES MODIFIERS TO PLAYER AND ENEMY OBJECTS//
@@ -57,7 +59,7 @@ var gauntlet = (function(gauntlet){
 		console.log(`${playerName}'s health`, player.health);
 
 		//CALLBACK FOR ATTACK BUTTON EVENT LISTENER//
-		var attackSequence = function(){
+		gauntlet.attackSequence = function(){
 
 			//MAIN ATTACK/DAMAGE SEQUENCE//
 //			if(player.health >=0 && enemy.health >=0){
@@ -101,11 +103,12 @@ var gauntlet = (function(gauntlet){
 				return null;
 			}
 */
+			//ADDS EVENT LISTENER TO ATTACK BUTTON//
+			mainDiv.addEventListener("click", gauntlet.attackSequence);
 		};
 
-		//ADDS EVENT LISTENER TO ATTACK BUTTON//
-		mainDiv.addEventListener("click", attackSequence);
-	};
+		
+
 
 	return gauntlet;
 })(gauntlet || {});
