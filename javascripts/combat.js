@@ -1,6 +1,13 @@
 'use strict';
+var enemy;
+var player;
+var attackButton = document.getElementById('attackButton')
 
-var makePatrick = function(){
+var randomDamageMultiplier = function (min,max){
+		return Math.random() * (max-min) + min;
+	}
+
+var makeEnemy = function(){
 	gauntlet.Federation.prototype = new gauntlet.Combatant();
 	gauntlet.Destroyer.prototype = new gauntlet.Federation();
 	gauntlet.Laser.prototype = new gauntlet.Destroyer();
@@ -8,39 +15,38 @@ var makePatrick = function(){
 	return new gauntlet.Player("Patrick");	
 };
 
-var makeKatherine = function(){
-	gauntlet.Federation.prototype = new gauntlet.Combatant();
-	gauntlet.Cruiser.prototype = new gauntlet.Federation();
-	gauntlet.Pulse.prototype = new gauntlet.Cruiser();
-	gauntlet.Player.prototype = new gauntlet.Pulse();
-	return new gauntlet.Player("Katherine");	
-};
+var combat = function(playerName, playerClass, playerRace, playerWeapon){
 
-var combat = function(){
+	console.log("START NEW MATCH!");
 
-	var attackButton = document.getElementById('attackButton')
+	enemy = makeEnemy();
+	player = gauntlet.createPlayer(playerName, playerClass, playerRace, playerWeapon);
 
-	function randomDamageMultiplier(min,max){
-		return Math.random() * (max-min) + min;
+	player.applyModifiers();
+	enemy.applyModifiers();
+
+	console.log("Enemy Vessel's health", enemy.health);
+	console.log(`${player.name}'s health`, player.health);
+
+	var attackSequence = function(){
+		
+		if(player.health >=0 && enemy.health >=0){
+		 	enemy.health -= randomDamageMultiplier(.75,1.1)*player.damage;
+			console.log("Enemy Vessel's health", enemy.health);
+			player.health -= randomDamageMultiplier(.75,1.1)*enemy.damage;
+			console.log(`${player.name}'s health`, player.health);
+		} 
+
+		if(enemy.health <=0){
+			attackButton.removeEventListener("click", attackSequence);
+			console.log(`${player.name} Wins`);
+			combat(playerName, playerClass, playerRace, playerWeapon);
+		} else if(player.health <=0){
+			attackButton.removeEventListener("click", attackSequence);
+			console.log("enemy Wins!");
+			combat(playerName, playerClass, playerRace, playerWeapon);
+		}
 	}
 
-	var patrick = makePatrick();
-	var katherine = makeKatherine();
-	katherine.applyModifiers();
-	patrick.applyModifiers();
-
-	attackButton.addEventListener("click", ()=>{
-	 	patrick.health -= randomDamageMultiplier(.75,1.1)*katherine.damage;
-		console.log("patrick's health", patrick.health);
-		if(patrick.health <=0){
-			alert("Katherine Wins!");
-			return;
-		}
-		katherine.health -= randomDamageMultiplier(.75,1.1)*patrick.damage;
-		console.log("Katherine's Health", katherine.health);
-		if(katherine.health <=0){
-			alert("Patrick Wins!");
-			return;
-		}
-	})
+	attackButton.addEventListener("click", attackSequence);
 };

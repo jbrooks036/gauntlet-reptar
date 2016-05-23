@@ -1,6 +1,7 @@
 "use strict";
 
 var gauntlet = (function(object){
+
     //COMBATANT CONSTRUCTOR FUNCTION
     object.Combatant = function(){
         this.health = 100;
@@ -10,6 +11,7 @@ var gauntlet = (function(object){
             this.damage *= this.raceDamageModifier;
             this.health *= this.classHealthModifier;
             this.damage *= this.classDamageModifier;
+            this.health *= this.weaponHealthModifier;
             this.damage *= this.weaponDamageModifier;
             if (this.hasOwnProperty("enemyHealthPenalty")) {
                 this.health *= this.enemyHealthPenalty;
@@ -43,16 +45,19 @@ var gauntlet = (function(object){
 
     //LASER (WEAPON 1) CONSTRUCTOR FUNCTION
     object.Laser = function(){
+      this.weaponHealthModifier = 1.2;
       this.weaponDamageModifier = 1.2;
     };
 
     //PHOTON TORPEDO (WEAPON 2) CONSTRUCTOR FUNCTION
     object.Photon = function(){
+      this.weaponHealthModifier = 1.2;
       this.weaponDamageModifier = 1.2;
     };
 
     //PULSE CANNON (WEAPON 3) CONSTRUCTOR FUNCTION
     object.Pulse = function(){
+      this.weaponHealthModifier = 1.2;
       this.weaponDamageModifier = 1.2;
     };
 
@@ -68,4 +73,3 @@ var gauntlet = (function(object){
 
     return object;
 })(gauntlet || {})
-
