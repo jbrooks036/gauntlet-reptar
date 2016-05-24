@@ -88,9 +88,6 @@ var gauntlet = (function(object){
     // ENEMEY CONSTRUCTOR FUNCTION
     object.Enemy = function(){
       this.enemyHealthPenalty = 0.9;
-      this.allowedRaces = ["Federation", "Klingon", "Vulcan", "Romulan"];
-      this.allowedClasses = ["Cruiser", "Destroyer"];
-      this.allowedWeapons = ["Laser", "Photon", "Pulse"];
     };
 
     return object;

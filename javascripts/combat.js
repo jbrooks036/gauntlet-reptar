@@ -17,10 +17,12 @@ var gauntlet = (function(gauntlet){
 		//CALLBACK FOR CONTINUE CHECKER EVENT LISTENER//
 		var continueCheckerCallback = function(event){
 			if(event.target.getAttribute('id') === 'continue'){
+				$('#winner-id').html('');
 				mainDiv.removeEventListener('click', continueCheckerCallback);
 				mainDiv.innerHTML = `<button id="attackButton">ATTACK!</button>`;
 				gauntlet.combat(playerName, playerClass, playerRace, playerWeapon);
 			} else if(event.target.getAttribute('id') === 'newGame'){
+				$('#winner-id').html('');
 				mainDiv.removeEventListener('click', continueCheckerCallback);
 				gauntlet.newGame();
 			}
@@ -52,40 +54,30 @@ var gauntlet = (function(gauntlet){
     var enemyRace = enemy.race;
     var enemyDesc = enemyRace.concat(" ", enemy.class);
     $('#enemy-desc').html(enemyDesc);
-    $('#attack-header').html("Attack Results");
+    // $('#attack-header').html("Attack Results");
 
-		//LOGS INITIAL STATS//
-		console.log("START NEW MATCH!");
-		console.log(`${enemyDesc}'s health`, enemy.health);
-		console.log(`${playerName}'s health`, player.health);
     // display the combatant health details with zero attack info
     gauntlet.combatDisplay(player, enemy, 0, 0);
 
 		//CALLBACK FOR ATTACK BUTTON EVENT LISTENER//
+		//MAIN ATTACK/DAMAGE SEQUENCE//
 		gauntlet.attackSequence = function(){
 
-			//MAIN ATTACK/DAMAGE SEQUENCE//
+      // player damage to enemy health
+      var playerDamage2Enemy = randomDamageMultiplier(0.75,1.1)*player.damage;
+			enemy.health -= playerDamage2Enemy;
 
-        // player damage to enemy health
-        var playerDamage2Enemy = randomDamageMultiplier(0.75,1.1)*player.damage;
-				enemy.health -= playerDamage2Enemy;
-				console.log(`${enemyDesc}'s health`, enemy.health);
+      // enemy damage to player health
+			var enemyDamage2Player = randomDamageMultiplier(0.75,1.1)*enemy.damage;
+			player.health -= enemyDamage2Player;
 
-        // enemy damage to player health
-				var enemyDamage2Player = randomDamageMultiplier(0.75,1.1)*enemy.damage;
-				player.health -= enemyDamage2Player;
-				console.log(`${playerName}'s health`, player.health);
-
-        // display the combatant and attack details
-        gauntlet.combatDisplay(player, enemy, playerDamage2Enemy, enemyDamage2Player);
-			}
+      // display the combatant and attack details
+      gauntlet.combatDisplay(player, enemy, playerDamage2Enemy, enemyDamage2Player);
+		}
 
 			//ADDS EVENT LISTENER TO ATTACK BUTTON//
 			mainDiv.addEventListener("click", gauntlet.attackSequence);
 		};
-
-		
-
 
 	return gauntlet;
 })(gauntlet || {});
