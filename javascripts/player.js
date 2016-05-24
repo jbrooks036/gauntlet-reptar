@@ -1,3 +1,5 @@
+//*****PLAYER*****//
+/*global gauntlet: true */
 "use strict";
 
 // create a player, composing player from multiple prototypes

@@ -1,4 +1,5 @@
 //*****CONSTRUCTORS*****//
+/*global gauntlet: true */
 "use strict";
 
 var gauntlet = (function(object){

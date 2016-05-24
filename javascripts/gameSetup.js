@@ -1,4 +1,5 @@
 //*****GAME SETUP*****//
+/*global gauntlet: true */
 'use strict';
 
 var gauntlet = (function(gauntlet){
@@ -17,7 +18,7 @@ var gauntlet = (function(gauntlet){
 		playerWeapon = event.target.getAttribute('id');
 		console.log(playerWeapon);
 		mainDiv.removeEventListener('click', weaponSelect);
-		mainDiv.innerHTML = `<button class='col-xl-12' id="attackButton">ATTACK!</button>`;
+		mainDiv.innerHTML = `<button id="attackButton">ATTACK!</button>`;
 		gauntlet.combat(playerName, playerClass, playerRace, playerWeapon);
 	};
 

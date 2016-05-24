@@ -1,4 +1,5 @@
 //*****ENEMY GENERATOR*****//
+/*global gauntlet: true */
 'use strict';
 
 var gauntlet = (function(obj){

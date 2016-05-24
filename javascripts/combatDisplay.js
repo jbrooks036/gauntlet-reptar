@@ -1,4 +1,5 @@
 //*****COMBAT DISPLAY*****//
+/*global gauntlet: true */
 'use strict';
 
 var gauntlet = (function(object){
@@ -22,7 +23,7 @@ var gauntlet = (function(object){
     $('#enemy-as-damager').html(enemyDesc);
 
     //BRAND-NEW GAME?
-    if ((playerDamage2Enemy == 0) && (enemyDamage2Player == 0)) {
+    if ((playerDamage2Enemy === 0) && (enemyDamage2Player === 0)) {
       $('#attack-card').hide();
       $('#cards').show();
       $('#enemy-health-value').html(Math.round(enemy.health));

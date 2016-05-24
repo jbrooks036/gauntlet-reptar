@@ -1,4 +1,5 @@
 //*****COMBAT*****//
+/*global gauntlet: true */
 'use strict';
 
 var gauntlet = (function(gauntlet){
@@ -49,12 +50,10 @@ var gauntlet = (function(gauntlet){
 		gauntlet.playerPickShip(player);
 
     //HANDLES FOR STAT DISPLAYS
-    // var playerName = player.name;
     $('#player-name').html(playerName);
     var enemyRace = enemy.race;
     var enemyDesc = enemyRace.concat(" ", enemy.class);
     $('#enemy-desc').html(enemyDesc);
-    // $('#attack-header').html("Attack Results");
 
     // display the combatant health details with zero attack info
     gauntlet.combatDisplay(player, enemy, 0, 0);
@@ -73,7 +72,7 @@ var gauntlet = (function(gauntlet){
 
       // display the combatant and attack details
       gauntlet.combatDisplay(player, enemy, playerDamage2Enemy, enemyDamage2Player);
-		}
+		};
 
 			//ADDS EVENT LISTENER TO ATTACK BUTTON//
 			mainDiv.addEventListener("click", gauntlet.attackSequence);
