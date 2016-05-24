@@ -10,17 +10,21 @@ var gauntlet = (function(object){
 		var mainDiv = document.getElementById('main');
 
     //HANDLES FOR STAT DISPLAYS
+    $('#attack-header').html("Attack Results");
     var playerName = player.name;
     $('#player-name').html(playerName);
+    $('#player-as-damager').html(playerName);
+    $('#player-as-damaged').html(playerName);
     var enemyRace = enemy.race;
     var enemyDesc = enemyRace.concat(" ", enemy.class);
     $('#enemy-desc').html(enemyDesc);
-    $('#attack-header').html("Attack Results");
+    $('#enemy-as-damaged').html(enemyDesc);
+    $('#enemy-as-damager').html(enemyDesc);
 
 		//UPDATE ATTACK/DAMAGE STATS//
 
     // player damage to enemy health
-    $('#player-damage-to-enemy').html(playerDamage2Enemy);
+    $('#player-damage-to-enemy').html(Math.round(playerDamage2Enemy));
     $('#enemy-health-value').html(Math.round(enemy.health));
     console.log(`${enemyDesc}'s health`, enemy.health);
 
