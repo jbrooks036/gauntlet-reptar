@@ -1,4 +1,5 @@
 //*****COMBAT DISPLAY*****//
+/*global gauntlet: true */
 'use strict';
 
 var gauntlet = (function(object){
@@ -22,44 +23,43 @@ var gauntlet = (function(object){
     $('#enemy-as-damager').html(enemyDesc);
 
     //BRAND-NEW GAME?
-    if ((playerDamage2Enemy == 0) && (enemyDamage2Player == 0)) {
+    if ((playerDamage2Enemy === 0) && (enemyDamage2Player === 0)) {
       $('#attack-card').hide();
       $('#cards').show();
       $('#enemy-health-value').html(Math.round(enemy.health));
-      console.log(`${enemyDesc}'s health`, enemy.health);
       $('#player-health-value').html(Math.round(player.health));
-      console.log(`${playerName}'s health`, player.health);
     } else {
       //NOT A BRAND-NEW GAME, SO THEN SHOW AND //
       //UPDATE ATTACK/DAMAGE STATS//
       $('#attack-card').show();
+      $('#line-1').show();
+      $('#line-2').show();
 
       // player damage to enemy health
       $('#player-damage-to-enemy').html(Math.round(playerDamage2Enemy));
       $('#enemy-health-value').html(Math.round(enemy.health));
-      console.log(`${enemyDesc}'s health`, enemy.health);
 
       // enemy damage to player health
       $('#enemy-damage-to-player').html(Math.round(enemyDamage2Player));
       $('#player-health-value').html(Math.round(player.health));
-      console.log(`${playerName}'s health`, player.health);
 
       //CHECKS FOR LOSERS//
       if(enemy.health <=0){
         mainDiv.removeEventListener("click", gauntlet.attackSequence);
+        $('#line-1').hide();
+        $('#line-2').hide();
         $('#attack-header').html("Game Over");
         $('#winner-id').html(`${playerName} Wins!`);
-        $('#line-2').html(" ");
-        console.log(`${playerName} Wins!`);
+        
         gauntlet.continueChecker();
         return null;
 
       } else if(player.health <=0){
         mainDiv.removeEventListener("click", gauntlet.attackSequence);
+        $('#line-1').hide();
+        $('#line-2').hide();
         $('#attack-header').html("Game Over");
         $('#winner-id').html(`${enemyDesc} Wins!`);
-        $('#line-2').html(" ");
-        console.log(`${enemyDesc} Wins!`);
         gauntlet.continueChecker();
         return null;
       }
