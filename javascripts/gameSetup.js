@@ -65,6 +65,8 @@ var gauntlet = (function(gauntlet){
 	gauntlet.newGame = function(){
 		mainDiv.innerHTML = (`<input type='text' id='nameSelectInput'/>`);
 		document.getElementById('nameSelectInput').addEventListener('keyup', nameSelect);
+    $('#attack-card').hide();
+    $('#cards').hide();
 	};
 
 	return gauntlet;

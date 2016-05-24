@@ -40,6 +40,7 @@ var gauntlet = (function(gauntlet){
 		//CREATES NEW PLAYER AND ENEMY OBJECTS//
 		var enemy = gauntlet.randomEnemy();
 		var player = gauntlet.createPlayer(playerName, playerClass, playerRace, playerWeapon);
+    // var newCombatants = true; // to enable hiding attack results display on init game
 
 		//APPLIES MODIFIERS TO PLAYER AND ENEMY OBJECTS//
 		enemy.applyModifiers();
@@ -49,7 +50,7 @@ var gauntlet = (function(gauntlet){
 		gauntlet.playerPickShip(player);
 
     //HANDLES FOR STAT DISPLAYS
-    var playerName = player.name;
+    // var playerName = player.name;
     $('#player-name').html(playerName);
     var enemyRace = enemy.race;
     var enemyDesc = enemyRace.concat(" ", enemy.class);
@@ -60,6 +61,8 @@ var gauntlet = (function(gauntlet){
 		console.log("START NEW MATCH!");
 		console.log(`${enemyDesc}'s health`, enemy.health);
 		console.log(`${playerName}'s health`, player.health);
+    // display the combatant health details with zero attack info
+    gauntlet.combatDisplay(player, enemy, 0, 0);
 
 		//CALLBACK FOR ATTACK BUTTON EVENT LISTENER//
 		gauntlet.attackSequence = function(){
@@ -81,7 +84,15 @@ var gauntlet = (function(gauntlet){
 //        $('#player-health-value').html(Math.round(player.health));
 				console.log(`${playerName}'s health`, player.health);
 
-        // new line added
+/*
+        // to support hiding attack results display on init game
+        if (newCombatants) {
+          playerDamage2Enemy = 0;
+          enemyDamage2Player = 0;
+          newCombatants = false;
+        }
+*/
+        // display the combatant and attack details
         gauntlet.combatDisplay(player, enemy, playerDamage2Enemy, enemyDamage2Player);
 			}
 
