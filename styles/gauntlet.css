@@ -17,7 +17,20 @@ body {
   min-width: 500px;
 }
 
+/* MAIN DIV STYLES */
 
+#main {
+  text-align: center;
+  height: 200px;
+  margin-top: 10px;
+}
+
+.nameSelectInput {
+  padding: 10px;
+}
+.selectorCard {
+  color: #f3f3f3;
+}
 
 /*
   Section styles
@@ -28,7 +41,7 @@ body {
   width: 250px;
   margin: 1%;
   padding: 10px;
-  background: blue;
+  background: rgba(0, 0, 255, 0.7);
   border: 2px solid black;
   border-radius: 25px;
 }
@@ -39,7 +52,7 @@ body {
   width: 600px
   margin: 1%;
   padding: 10px;
-  background: yellow;
+  background: rgba(225, 225, 0, 0.7);
   border: 2px solid black;
   border-radius: 25px;
 }
@@ -48,7 +61,7 @@ body {
   font-size: 1.1em;
   font-weight: bold;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: uppercasecase;
 }
 
 .card__button {
