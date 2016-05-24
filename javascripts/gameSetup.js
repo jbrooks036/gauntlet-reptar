@@ -65,6 +65,7 @@ var gauntlet = (function(gauntlet){
 	//STARTS NEW GAME//
 	gauntlet.newGame = function(){
 		mainDiv.innerHTML = (`<input type='text' id='nameSelectInput' placeholder='Vessel Name'/>`);
+		document.getElementById('nameSelectInput').focus();
 		document.getElementById('nameSelectInput').addEventListener('keyup', nameSelect);
     $('#attack-card').hide();
     $('#cards').hide();
