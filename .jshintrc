@@ -1,0 +1,5 @@
+{
+  "predef": [ "window", "XMLHttpRequest", "document", "jQuery", "$", "console", "gauntlet" ],
+  "esversion": 6,
+  "globalstrict": true
+}
