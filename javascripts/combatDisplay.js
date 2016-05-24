@@ -30,7 +30,7 @@ var gauntlet = (function(object){
       $('#player-health-value').html(Math.round(player.health));
       console.log(`${playerName}'s health`, player.health);
     } else {
-      //NOT A BRAND-NEW GAME, SO //
+      //NOT A BRAND-NEW GAME, SO THEN SHOW AND //
       //UPDATE ATTACK/DAMAGE STATS//
       $('#attack-card').show();
 
